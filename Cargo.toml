@@ -8,6 +8,14 @@ license = "MIT"
 
 [dependencies]
 anyhow = "1.0.97"
+argon2 = { version = "0.5.3", features = ["std"] }
+axum = { version = "0.8.3", features = ["http2", "query", "tracing", "multipart"] }
+chrono = { version = "0.4.40", features = ["serde"] }
+jwt-simple = "0.12.12"
 serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
 serde_yaml = "0.9.34"
+sqlx = { version = "0.8.5", features = ["postgres", "runtime-tokio", "tls-rustls", "chrono", "uuid"] }
+sqlx-db-tester = "0.6.0"
+thiserror = "2.0.12"
 tokio = { version = "1.44.1", features = ["rt", "rt-multi-thread", "macros", "net", "sync"] }

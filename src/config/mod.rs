@@ -1,11 +1,13 @@
-mod app_config;
-mod status_code;
+pub mod app_config;
+pub mod status_code;
 
+use crate::error::app_error::AppError;
 use anyhow::Result;
-pub use app_config::AppConfig;
-pub use status_code::{STATUS_CODE, code_init};
+use app_config::AppConfig;
+use status_code::code_init;
 
-pub async fn config_init() -> Result<AppConfig> {
+#[allow(unused)]
+pub async fn config_init() -> Result<AppConfig, AppError> {
     code_init().await;
     AppConfig::new()
 }

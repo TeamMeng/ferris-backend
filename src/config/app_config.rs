@@ -1,4 +1,4 @@
-use anyhow::Result;
+use crate::error::app_error::AppError;
 use serde::Deserialize;
 use std::fs::File;
 
@@ -21,7 +21,7 @@ pub struct AuthConfig {
 }
 
 impl AppConfig {
-    pub fn new() -> Result<Self> {
+    pub fn new() -> Result<Self, AppError> {
         let rdr = File::open("./backend.yaml")?;
         let config = serde_yaml::from_reader(rdr)?;
         Ok(config)
@@ -31,6 +31,7 @@ impl AppConfig {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use anyhow::Result;
 
     #[test]
     fn app_config_should_work() -> Result<()> {
