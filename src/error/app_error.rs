@@ -14,4 +14,7 @@ pub enum AppError {
 
     #[error("sqlx error: {0}")]
     Sqlx(#[from] sqlx::Error),
+
+    #[error("user by {0} email is already exists")]
+    UserAlreadyExists(String),
 }
